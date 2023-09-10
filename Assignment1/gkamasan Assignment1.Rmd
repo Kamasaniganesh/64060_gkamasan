@@ -28,6 +28,7 @@ spotify <- na.omit(spotify)
 
 head(spotify)
 
+
 ```
 
 # Descriptive statistics for quantitative variables
