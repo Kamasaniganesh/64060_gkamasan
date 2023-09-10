@@ -1,0 +1,87 @@
+---
+title: "BA 64060-FML Assignment 1"
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+date: "2023-09-09"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+I have downloaded the data set from Kaggle and below is the URL for source data
+
+# URL for the dataset
+
+**https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023**
+
+With reference of source data I have Modified the data which is required for now
+
+```{r}
+
+spotify <- read.csv("spotify-2023_1.csv", nrows = 50, header=TRUE, sep = ",")
+
+spotify <- na.omit(spotify)
+
+head(spotify)
+
+```
+
+# Descriptive statistics for quantitative variables
+
+```{r}
+
+quantative_vars <- spotify[, c("released_day", "bpm")]
+
+summary(quantative_vars)
+
+```
+
+# Descriptive statistics for categorical variables
+
+```{r}
+
+Categorical_var <- spotify[, c("released_year", "released_month")]
+
+table(Categorical_var)
+
+
+```
+# Transform Spotify_Playlist to Rank wise
+
+```{r}
+
+log_rank <- log(spotify$spty_plists)
+
+print(log_rank)
+
+```
+
+# Bar Plot
+
+```{r}
+# Create a bar plot
+
+barplot(spotify$bpm,
+        xlab = 'spotfy_playist', ylim = c(0,200), ylab = 'Play list',
+        main = 'Spotify Bar Plot', col = 'green')
+
+barplot(spotify$spty_plists, names.arg = spotify$released_year, col = "blue", main = "Bar Plot", ylab = "Spotify Paylist", ylim = c(0,50000),
+        num_ticks <- 5)
+```
+
+# Scatter Polt
+
+```{r}
+
+plot(spotify$released_year, spotify$deezer_plist, 
+     type = "p",           
+     col = "blue",         
+     main = "Scatter Plot", 
+     xlab = "Released Year",          
+     ylab = "Deezer Playlist")
+```
+
