@@ -1,16 +1,15 @@
 ---
-title: "BA 64060-FML Assignment 1"
+title: "64060-FML Assignment 1"
+author: "Ganesh Reddy"
+date: "2023-09-11"
 output:
-  html_document: default
   word_document: default
-  pdf_document: default
-date: "2023-09-09"
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
 
 I have downloaded the data set from Kaggle and below is the URL for source data
 
@@ -85,4 +84,3 @@ plot(spotify$released_year, spotify$deezer_plist,
      xlab = "Released Year",          
      ylab = "Deezer Playlist")
 ```
-
